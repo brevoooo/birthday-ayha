@@ -93,10 +93,21 @@ if(current >= memories.length){
 clearInterval(slide);
 document.getElementById("memories").classList.add("hidden");
 document.getElementById("videoSection").classList.remove("hidden");
+
 const vid = document.getElementById("birthdayVideo");
+const bgm = document.getElementById("bgm");
+
+// Mengecilkan volume lagu utama saat video diputar agar suara video terdengar jelas
+bgm.volume = 0.1; 
+
 vid.play();
 vid.onended = ()=>{
 document.getElementById("videoSection").classList.add("hidden");
+
+// Kembalikan volume lagu utama ke normal setelah video selesai
+bgm.volume = 1.0; 
+bgm.play(); 
+
 showLetter();
 };
 return;
