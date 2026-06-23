@@ -95,7 +95,7 @@ current++;
 if(current >= memories.length){
 clearInterval(slide);
 document.getElementById("memories").classList.add("hidden");
-showLetter(); // Setelah foto habis, langsung lanjut tampilkan surat
+showLetter(); // Alur langsung pindah ke surat (Lagu tetap menyala)
 return;
 }
 img.src = memories[current].image;
@@ -105,7 +105,7 @@ caption.innerText = memories[current].caption;
 
 const text = `Hai Sayangggg ❤️
 
-hehehehe haiii sayanggg akuuu tauu kondisii kitaa lagi susahh bangett buat ketemuu tapii akuuu yakinn pastii nantii kitaa bakall bisaa seringg mainn, akuuu tauuu koo akuuu waktuu ituuu salahh karenaaa akuuu udah terlanjurr emosiii, karenaa akuuu penasarann bangett beeee jadinyaaa akuuu malahhh emosiii kayaaa gituuu, akuuu sebenrnyaa udahh gaa kenapaa napaaa veee cumann akuuu mauuu bikinn ajaaa biar surprise buatt kamuu pas kamuu ultahh EHEHEHEHE AKU BENERAN KANGEN BANGET GILA AKU LIATIN TIKTOK KAMU TERUS CUMAN AKU TAHAN,AKUUU BENERANNN MINTAA MAAAF YAAA SAYANGGG KARENA MALAH DIEMIN KAMU BUKAN CHATT TAPI PAS KAMU LIAT INI PASTI KAMU KAGET AHAHAHAHA III LOVEEE UUU SOO MUCHH SAYANGGG, POKONYA SEMOGA DENGAN TAMBAHNYA UMUR KAMU, KAMU BISA NYENENGIN MAMI PAPI, NURUT SAMA MEREKA, BISA REMISI BEEEE, POKOKNYA DOA AKU KE KAMU SEGALA YANG KAMU LAKUIN ITU BAKALAN BERHASILL SEMANGAT YAAA BEEEE MAAF JUGAA UDAHH KUUU DIEMINN TAPI AKU BENERAN SENENG BISA NGERAYUN ULTAH KAMU LAGI DENGAN STATUS PACARAN AHAHAHAHAHAH SEHAT SEHAT TERUSS YAAAA SAYANGGG IIII LOVEEE UUU SOO MUCHHH SAYANGGGG HAPPY BIRTH DAY YANG KE 18, akuuu benerann mintaa maaaf bangett yaaaa buat yangg kemarinn, maaaf banget jugaaa udahhh membuatt menungguu hehehehe, akuuu buatnyaa agaa lamaa beee karenaaa ADA YANG KU UBAH AHAHAHAHA POKOKNYAAA AKU SAYANG KAMUUU MAAFIN AKUU YAA KALO KAMU BACA INI BESOKK BAIKANN YAAAA GEEHGEHEHEHE JANGAN MALAH PLISSS HUHUHUHU KANGEN NIH AKUUU SAYANGG BESOK CERITA CERITA YAAAAA IIII LOVEEE UUU SOOO MUCHHH SAYANGKUU CINTAKUU PRINCESSNYAAA AKUUU💖💖💞💞`;
+hehehehe haiii sayanggg akuuu tauu kondisii kitaa lagi susahh bangett buat ketemuu tapii akuuu yakinn pastii nantii kitaa bakall bisaa seringg mainn, akuuu tauuu koo akuuu waktuu ituuu salahh karenaaa akuuu udah terlanjurr emosiii, karenaa akuuu penasarann bangett beeee jadinyaaa akuuu malahhh emosiii kayaaa gituuu, akuuu sebenrnyaa udahh gaa kenapaa napaaa veee cumann akuuu mauuu bikinn ajaaa biar surprise buatt kamuu pas kamuu ultahh EHEHEHEHE AKU BENERAN KNGEN BANGET GILA AKU LIATIN TIKTOK KAMU TERUS CUMAN AKU TAHAN,AKUUU BENERANNN MINTAA MAAAF YAAA SAYANGGG KARENA MALAH DIEMIN KAMU BUKAN CHATT TAPI PAS KAMU LIAT INI PASTI KAMU KAGET AHAHAHAHA III LOVEEE UUU SOO MUCHH SAYANGGG, POKONYA SEMOGA DENGAN TAMBAHNYA UMUR KAMU, KAMU BISA NYENENGIN MAMI PAPI, NURUT SAMA MEREKA, BISA REMISI BEEEE, POKOKNYA DOA AKU KE KAMU SEGALA YANG KAMU LAKUIN ITU BAKALAN BERHASILL SEMANGAT YAAA BEEEE MAAF JUGAA UDAHH KUUU DIEMINN TAPI AKU BENERAN SENENG BISA NGERAYUN ULTAH KAMU LAGI DENGAN STATUS PACARAN AHAHAHAHAHAH SEHAT SEHAT TERUSS YAAAA SAYANGGG IIII LOVEEE UUU SOO MUCHHH SAYANGGGG HAPPY BIRTH DAY YANG KE 18, akuuu benerann mintaa maaaf bangett yaaaa buat yangg kemarinn, maaaf banget jugaaa udahhh membuatt menungguu hehehehe, akuuu buatnyaa agaa lamaa beee karenaaa ADA YANG KU UBAH AHAHAHAHA POKOKNYAAA AKU SAYANG KAMUUU MAAFIN AKUU YAA KALO KAMU BACA INI BESOKK BAIKANN YAAAA GEEHGEHEHEHE JANGAN MALAH PLISSS HUHUHUHU KANGEN NIH AKUUU SAYANGG BESOK CERITA CERITA YAAAAA IIII LOVEEE UUU SOOO MUCHHH SAYANGKUU CINTAKUU PRINCESSNYAAA AKUUU💖💖💞💞`;
 
 function showLetter(){
 document.getElementById("letterSection").classList.remove("hidden");
@@ -118,11 +118,11 @@ target.innerHTML += text.charAt(i);
 i++;
 if(i >= text.length){
 clearInterval(typing);
-// Setelah surat selesai mengetik, tunggu 4 detik lalu lanjut ke bagian video
+// Setelah surat selesai ngetik otomatis, tunggu 5 detik baru tampilkan video
 setTimeout(()=>{
 document.getElementById("letterSection").classList.add("hidden");
 showVideoSection();
-},4000);
+},500);
 }
 },35);
 }
@@ -132,11 +132,9 @@ document.getElementById("videoSection").classList.remove("hidden");
 const vid = document.getElementById("birthdayVideo");
 const bgm = document.getElementById("bgm");
 
-// Saat video dimulai, matikan musik latar agar fokus ke suara video
-bgm.pause(); 
+bgm.pause(); // Lagu dimatikan pas video main agar suaranya tidak tabrakan
 vid.play();
 
-// Setelah video selesai diputar, langsung tampilkan halaman akhir penutup
 vid.onended = ()=>{
 document.getElementById("videoSection").classList.add("hidden");
 document.getElementById("ending").classList.remove("hidden");
