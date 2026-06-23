@@ -50,16 +50,16 @@ video{width:90%;max-width:700px;border-radius:25px;box-shadow:0 20px 40px rgba(0
 <p class="quote">"every memory with you became my favorite memory."</p>
 </section>
 
-<section id="videoSection" class="hidden">
-<h2 style="font-size:3rem;margin-bottom:20px;">a little movie for you 🎥</h2>
-<video id="birthdayVideo" controls><source src="video.mov" type="video/quicktime"></video>
-</section>
-
 <section id="letterSection" class="hidden">
 <div class="glass">
 <h2 style="font-size:3rem;margin-bottom:20px;">💌 for you</h2>
 <p id="letter"></p>
 </div>
+</section>
+
+<section id="videoSection" class="hidden">
+<h2 style="font-size:3rem;margin-bottom:20px;">a little movie for you 🎥</h2>
+<video id="birthdayVideo" controls><source src="video.mov" type="video/quicktime"></video>
 </section>
 
 <section class="ending hidden" id="ending">
@@ -79,8 +79,7 @@ let current = 0;
 function startWebsite(){
 document.getElementById("opening").classList.add("hidden");
 document.getElementById("memories").classList.remove("hidden");
-const bgm = document.getElementById("bgm");
-bgm.play().catch(e => console.log("Audio play digagalkan oleh browser: ", e));
+document.getElementById("bgm").play().catch(e => console.log("Audio ditahan browser: ", e));
 startSlideshow();
 }
 
@@ -96,24 +95,7 @@ current++;
 if(current >= memories.length){
 clearInterval(slide);
 document.getElementById("memories").classList.add("hidden");
-document.getElementById("videoSection").classList.remove("hidden");
-
-const vid = document.getElementById("birthdayVideo");
-const bgm = document.getElementById("bgm");
-
-// Mengecilkan suara lagu agar suara video terdengar jelas
-bgm.volume = 0.1; 
-
-vid.play();
-vid.onended = ()=>{
-document.getElementById("videoSection").classList.add("hidden");
-
-// Kembalikan volume lagu utama ke normal setelah video selesai
-bgm.volume = 1.0; 
-bgm.play(); 
-
-showLetter();
-};
+showLetter(); // Setelah foto habis, langsung lanjut tampilkan surat
 return;
 }
 img.src = memories[current].image;
@@ -129,16 +111,36 @@ function showLetter(){
 document.getElementById("letterSection").classList.remove("hidden");
 let i = 0;
 const target = document.getElementById("letter");
-target.innerHTML = ""; // Bersihkan kontainer HTML sebelum mulai mengetik agar tidak acak-acakan
+target.innerHTML = ""; 
 
 const typing = setInterval(()=>{
 target.innerHTML += text.charAt(i);
 i++;
 if(i >= text.length){
 clearInterval(typing);
-setTimeout(()=>{document.getElementById("ending").classList.remove("hidden");},3000);
+// Setelah surat selesai mengetik, tunggu 4 detik lalu lanjut ke bagian video
+setTimeout(()=>{
+document.getElementById("letterSection").classList.add("hidden");
+showVideoSection();
+},4000);
 }
 },35);
+}
+
+function showVideoSection(){
+document.getElementById("videoSection").classList.remove("hidden");
+const vid = document.getElementById("birthdayVideo");
+const bgm = document.getElementById("bgm");
+
+// Saat video dimulai, matikan musik latar agar fokus ke suara video
+bgm.pause(); 
+vid.play();
+
+// Setelah video selesai diputar, langsung tampilkan halaman akhir penutup
+vid.onended = ()=>{
+document.getElementById("videoSection").classList.add("hidden");
+document.getElementById("ending").classList.remove("hidden");
+};
 }
 
 function createHeart(){
