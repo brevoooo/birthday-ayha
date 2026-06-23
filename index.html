@@ -32,7 +32,10 @@ video{width:90%;max-width:700px;border-radius:25px;box-shadow:0 20px 40px rgba(0
 </head>
 <body>
 <div class="hearts" id="hearts"></div>
-<audio id="bgm" loop><source src="music.mp3" type="audio/mpeg"></audio>
+
+<audio id="bgm" loop preload="auto">
+<source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <section class="hero" id="opening">
 <h1>Happy Birthday</h1><h1>Ayha ❤️</h1>
@@ -76,7 +79,8 @@ let current = 0;
 function startWebsite(){
 document.getElementById("opening").classList.add("hidden");
 document.getElementById("memories").classList.remove("hidden");
-document.getElementById("bgm").play();
+const bgm = document.getElementById("bgm");
+bgm.play().catch(e => console.log("Audio play digagalkan oleh browser: ", e));
 startSlideshow();
 }
 
@@ -97,7 +101,7 @@ document.getElementById("videoSection").classList.remove("hidden");
 const vid = document.getElementById("birthdayVideo");
 const bgm = document.getElementById("bgm");
 
-// Mengecilkan volume lagu utama saat video diputar agar suara video terdengar jelas
+// Mengecilkan suara lagu agar suara video terdengar jelas
 bgm.volume = 0.1; 
 
 vid.play();
@@ -125,6 +129,8 @@ function showLetter(){
 document.getElementById("letterSection").classList.remove("hidden");
 let i = 0;
 const target = document.getElementById("letter");
+target.innerHTML = ""; // Bersihkan kontainer HTML sebelum mulai mengetik agar tidak acak-acakan
+
 const typing = setInterval(()=>{
 target.innerHTML += text.charAt(i);
 i++;
