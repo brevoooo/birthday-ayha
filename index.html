@@ -1,150 +1,581 @@
 <!DOCTYPE html>
+
 <html lang="id">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Birthday Surprise ❤️</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Ayha ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+}
+
 body{
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#fff8f0,#ffdce6);
-overflow-x:hidden;color:#333;
+
+background:linear-gradient(
+
+180deg,
+
+#241915,
+
+#3b2a24,
+
+#5a4334,
+
+#d4b59e
+
+);
+
+color:white;
+
+font-family:'Poppins',sans-serif;
+
+overflow-x:hidden;
+
+scroll-behavior:smooth;
+
 }
-#hearts{position:fixed;inset:0;pointer-events:none}
-.heart{position:fixed;font-size:20px;animation:fall linear forwards}
-@keyframes fall{to{transform:translateY(110vh);opacity:0}}
-.screen{
-min-height:100vh;display:flex;flex-direction:column;
-justify-content:center;align-items:center;padding:20px;text-align:center;
+
+section{
+
+min-height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+padding:30px;
+
+text-align:center;
+
 }
-.glass{
-background:rgba(255,255,255,.4);
-backdrop-filter:blur(15px);
-padding:25px;border-radius:25px;
-box-shadow:0 10px 30px rgba(0,0,0,.1);
-max-width:700px;width:100%;
+
+h1,h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-weight:600;
+
 }
-h1{font-size:2.5rem;margin-bottom:10px}
+
+.hero h1{
+
+font-size:4rem;
+
+letter-spacing:2px;
+
+}
+
+.subtitle{
+
+opacity:.8;
+
+margin-top:10px;
+
+}
+
 button{
-border:none;border-radius:999px;padding:14px 24px;
-cursor:pointer;margin-top:15px;
+
+margin-top:25px;
+
+padding:15px 35px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:16px;
+
+cursor:pointer;
+
+background:#f4e7dd;
+
+color:#3b2a24;
+
+font-weight:600;
+
 }
-.gallery img{
-width:100%;max-width:500px;height:500px;object-fit:cover;
+
+button:hover{
+
+transform:scale(1.05);
+
+}
+
+.glass{
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.1);
+
 border-radius:25px;
+
+padding:30px;
+
 }
-.hidden{display:none}
-#letter{white-space:pre-wrap;line-height:1.7;text-align:left}
-.counter{font-size:1.3rem;margin-top:15px}
+
+.hidden{
+
+display:none;
+
+}
+
+.memory-title{
+
+font-size:3rem;
+
+margin-bottom:25px;
+
+}
+
+#memoryImage{
+
+width:90%;
+
+max-width:420px;
+
+border-radius:25px;
+
+box-shadow:0 20px 40px rgba(0,0,0,.3);
+
+animation:fadeIn 1s ease;
+
+}
+
+.caption{
+
+margin-top:20px;
+
+font-size:18px;
+
+max-width:500px;
+
+line-height:1.8;
+
+}
+
+.quote{
+
+margin-top:30px;
+
+font-style:italic;
+
+opacity:.8;
+
+}
+
+video{
+
+width:90%;
+
+max-width:700px;
+
+border-radius:25px;
+
+box-shadow:0 20px 40px rgba(0,0,0,.3);
+
+}
+
+#letter{
+
+white-space:pre-line;
+
+line-height:2;
+
+font-size:17px;
+
+text-align:left;
+
+max-width:700px;
+
+}
+
+.ending h1{
+
+font-size:4rem;
+
+}
+
+.ending p{
+
+margin-top:20px;
+
+font-size:18px;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.hearts{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+}
+
+.heart{
+
+position:absolute;
+
+bottom:-20px;
+
+font-size:20px;
+
+animation:float 8s linear infinite;
+
+opacity:.4;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+opacity:0;
+
+}
+
+30%{
+
+opacity:.5;
+
+}
+
+100%{
+
+transform:translateY(-110vh);
+
+opacity:0;
+
+}
+
+}
+
 </style>
+
 </head>
+
 <body>
 
-<!-- ===== EDIT BAGIAN INI SAJA ===== -->
-<script>
-const CONFIG={
-namaPacar:"AYHAAAAA",
-namaKamu:"BRYFIII",
-tanggalJadian:"2025-02-02",
-musik:"music.mp3",
-foto:[
-"foto1.HEIC",
-"foto2.JPG",
-"foto3.HEIC",
-"foto4.HEIC",
-"foto5.HEIC",
-"foto6.JPG",
-"foto7.JPG",
-],
-surat:`Hai Sayangggg ❤️
+<div class="hearts" id="hearts"></div>
 
-hehehehe haiii sayanggg akuuu tauu kondisii kitaa lagi susahh bangett buat ketemuu tapii akuuu yakinn pastii nantii kitaa bakall bisaa seringg mainn, akuuu tauuu koo akuuu waktuu ituuu salahh karenaaa akuuu udah terlanjurr emosiii, karenaa akuuu penasarann bangett beeee jadinyaaa akuuu malahhh emosiii kayaaa gituuu, akuuu sebenrnyaa udahh gaa kenapaa napaaa veee cumann akuuu mauuu bikinn ajaaa biar surprise buatt kamuu pas kamuu ultahh EHEHEHEHE AKU BENERAN KANGEN BANGET GILA AKU LIATIN TIKTOK KAMU TERUS CUMAN AKU TAHAN,AKUUU BENERANNN MINTAA MAAAF YAAA SAYANGGG KARENA MALAH DIEMIN KAMU BUKAN CHATT TAPI PAS KAMU LIAT INI PASTI KAMU KAGET AHAHAHAHA III LOVEEE UUU SOO MUCHH SAYANGGG, POKONYA SEMOGA DENGAN TAMBAHNYA UMUR KAMU, KAMU BISA NYENENGIN MAMI PAPI, NURUT SAMA MEREKA, BISA REMISI BEEEE, POKOKNYA DOA AKU KE KAMU SEGALA YANG KAMU LAKUIN ITU BAKALAN BERHASILL SEMANGAT YAAA BEEEE MAAF JUGAA UDAHH KUUU DIEMINN TAPI AKU BENERAN SENENG BISA NGERAYUN ULTAH KAMU LAGI DENGAN STATUS PACARAN AHAHAHAHAHAH SEHAT SEHAT TERUSS YAAAA SAYANGGG IIII LOVEEE UUU SOO MUCHHH SAYANGGG HAPPY BIRTH DAY YANG KE 18
-Aku sayanggg kamuuu.`
-};
-</script>
+<audio id="bgm" loop>
 
-<div id="hearts"></div>
+<source src="music.mp3" type="audio/mpeg">
 
-<section class="screen" id="welcome">
-<div class="glass">
-<h1>🎂 Happy Birthday ❤️</h1>
-<p>Untuk <span id="pacar"></span></p>
-<button onclick="openSite()">Open Surprise ✨</button>
-</div>
-</section>
-
-<section class="screen hidden" id="main">
-<div class="glass">
-<h1>❤️ <span id="pacar2"></span></h1>
-<div class="gallery">
-<img id="slide" src="" alt="foto">
-</div>
-<div class="counter" id="days"></div>
-<button onclick="showLetter()">Baca Surat 💌</button>
-<audio id="audio" controls style="margin-top:15px;width:100%">
-<source src="" type="audio/mpeg">
 </audio>
-</div>
+
+<!-- OPENING -->
+
+<section class="hero" id="opening">
+
+<h1>Happy Birthday</h1>
+
+<h1>Ayha ❤️</h1>
+
+<p class="subtitle">
+
+for my favorite person
+
+</p>
+
+<button onclick="startWebsite()">
+
+Buka Surprise ✨
+
+</button>
+
 </section>
 
-<section class="screen hidden" id="letterScreen">
+<!-- MEMORIES -->
+
+<section id="memories" class="hidden">
+
+<h2 class="memory-title">
+
+our memories 📸
+
+</h2>
+
+<img id="memoryImage" src="images/1.jpg">
+
+<p id="memoryCaption" class="caption">
+
+aku masih inget hari itu ❤️
+
+</p>
+
+<p class="quote">
+
+"every memory with you became my favorite memory."
+
+</p>
+
+</section>
+
+<!-- VIDEO -->
+
+<section id="videoSection" class="hidden">
+
+<h2 style="font-size:3rem;margin-bottom:20px;">
+
+a little movie for you 🎥
+
+</h2>
+
+<video id="birthdayVideo" controls>
+
+<source src="video.MOV" type="video/quicktime">
+
+</video>
+
+</section>
+
+<!-- LETTER -->
+
+<section id="letterSection" class="hidden">
+
 <div class="glass">
-<h2>Untuk Kamu ❤️</h2>
+
+<h2 style="font-size:3rem;margin-bottom:20px;">
+
+💌 for you
+
+</h2>
+
 <p id="letter"></p>
+
 </div>
+
+</section>
+
+<!-- ENDING -->
+
+<section class="ending hidden" id="ending">
+
+<h1>Happy Birthday</h1>
+
+<h1>18th ❤️</h1>
+
+<p>
+
+i love you,<br>
+
+today and always.
+
+</p>
+
 </section>
 
 <script>
-document.getElementById('pacar').textContent=CONFIG.namaPacar;
-document.getElementById('pacar2').textContent=CONFIG.namaPacar;
-document.querySelector('#audio source').src=CONFIG.musik;
 
-function openSite(){
-document.getElementById('welcome').classList.add('hidden');
-document.getElementById('main').classList.remove('hidden');
-document.getElementById('audio').load();
+const memories = [
+
+{
+
+image:"images/foto1.HEIC",
+
+caption:"AHAHAHAHAH INI PERTAMA KALI DEKET AKU MASI INGET BANGET"
+
+},
+
+{
+
+image:"images/foto2.JPG",
+
+caption:"sumpahh beee ini beneran foto yang terngiang2 di aku."
+
+},
+
+{
+
+image:"images/foto6.JPG",
+
+caption:"AHAHAHAHHA INI NIH WAKTU MULAI DEKET LAGI."
+
+},
+
+{
+
+image:"images/foto3.HEIC",
+
+caption:"heheheheh makasiii yaaaa sayangg dahh jadii pacar akuuu."
+
 }
 
-let i=0;
-document.getElementById('slide').src=CONFIG.foto[0];
+];
 
-setInterval(()=>{
-i=(i+1)%CONFIG.foto.length;
-document.getElementById('slide').src=CONFIG.foto[i];
-},3000);
+let current = 0;
+
+function startWebsite(){
+
+document.getElementById("opening").classList.add("hidden");
+
+document.getElementById("memories").classList.remove("hidden");
+
+document.getElementById("bgm").play();
+
+startSlideshow();
+
+}
+
+function startSlideshow(){
+
+const img = document.getElementById("memoryImage");
+
+const caption = document.getElementById("memoryCaption");
+
+const slide = setInterval(()=>{
+
+current++;
+
+if(current >= memories.length){
+
+clearInterval(slide);
+
+document.getElementById("memories").classList.add("hidden");
+
+document.getElementById("videoSection").classList.remove("hidden");
+
+const vid = document.getElementById("birthdayVideo");
+
+vid.play();
+
+vid.onended = ()=>{
+
+document.getElementById("videoSection").classList.add("hidden");
+
+showLetter();
+
+};
+
+return;
+
+}
+
+img.src = memories[current].image;
+
+caption.innerText = memories[current].caption;
+
+},4000);
+
+}
+
+const text = `Hai Sayangggg ❤️
+
+hehehehe haiii sayanggg akuuu tauu kondisii kitaa lagi susahh bangett buat ketemuu tapii akuuu yakinn pastii nantii kitaa bakall bisaa seringg mainn, akuuu tauuu koo akuuu waktuu ituuu salahh karenaaa akuuu udah terlanjurr emosiii, karenaa akuuu penasarann bangett beeee jadinyaaa akuuu malahhh emosiii kayaaa gituuu, akuuu sebenrnyaa udahh gaa kenapaa napaaa veee cumann akuuu mauuu bikinn ajaaa biar surprise buatt kamuu pas kamuu ultahh EHEHEHEHE AKU BENERAN KANGEN BANGET GILA AKU LIATIN TIKTOK KAMU TERUS CUMAN AKU TAHAN,AKUUU BENERANNN MINTAA MAAAF YAAA SAYANGGG KARENA MALAH DIEMIN KAMU BUKAN CHATT TAPI PAS KAMU LIAT INI PASTI KAMU KAGET AHAHAHAHA III LOVEEE UUU SOO MUCHH SAYANGGG, POKONYA SEMOGA DENGAN TAMBAHNYA UMUR KAMU, KAMU BISA NYENENGIN MAMI PAPI, NURUT SAMA MEREKA, BISA REMISI BEEEE, POKOKNYA DOA AKU KE KAMU SEGALA YANG KAMU LAKUIN ITU BAKALAN BERHASILL SEMANGAT YAAA BEEEE MAAF JUGAA UDAHH KUUU DIEMINN TAPI AKU BENERAN SENENG BISA NGERAYUN ULTAH KAMU LAGI DENGAN STATUS PACARAN AHAHAHAHAHAH SEHAT SEHAT TERUSS YAAAA SAYANGGG IIII LOVEEE UUU SOO MUCHHH SAYANGGG HAPPY BIRTH DAY YANG KE 18, akuuu benerann mintaa maaaf bangett yaaaa buat yangg kemarinn, maaaf banget jugaaa udahhh membuatt menungguu hehehehe, akuuu buatnyaa agaa lamaa beee karenaaa ADA YANG KU UBAH AHAHAHAHA POKOKNYAAA AKU SAYANG KAMUUU MAAFIN AKUU YAA KALO KAMU BACA INI BESOKK BAIKANN YAAAA GEEHGEHEHEHE JANGAN MALAH PLISSS HUHUHUHU KANGEN NIH AKUUU SAYANGG BESOK CERITA CERITA YAAAAA IIII LOVEEE UUU SOOO MUCHHH SAYANGKUU CINTAKUU PRINCESSNYAAA AKUUU💖💖💞💞`;
 
 function showLetter(){
-document.getElementById('letterScreen').classList.remove('hidden');
-const target=document.getElementById('letter');
-target.textContent='';
-let n=0;
-const txt=CONFIG.surat;
-const t=setInterval(()=>{
-target.textContent+=txt[n]||'';
-n++;
-if(n>txt.length) clearInterval(t);
-},30);
+
+document.getElementById("letterSection").classList.remove("hidden");
+
+let i = 0;
+
+const target = document.getElementById("letter");
+
+const typing = setInterval(()=>{
+
+target.innerHTML += text.charAt(i);
+
+i++;
+
+if(i >= text.length){
+
+clearInterval(typing);
+
+setTimeout(()=>{
+
+document.getElementById("ending").classList.remove("hidden");
+
+},3000);
+
 }
 
-function updateDays(){
-const start=new Date(CONFIG.tanggalJadian);
-const now=new Date();
-const days=Math.floor((now-start)/(1000*60*60*24));
-document.getElementById('days').textContent='💕 Bersama selama '+days+' hari';
-}
-updateDays();
+},35);
 
-setInterval(()=>{
-const h=document.createElement('div');
-h.className='heart';
-h.innerHTML='💖';
-h.style.left=Math.random()*100+'vw';
-h.style.top='-30px';
-h.style.animationDuration=(4+Math.random()*4)+'s';
-document.body.appendChild(h);
-setTimeout(()=>h.remove(),8000);
-},250);
+}
+
+function createHeart(){
+
+const heart = document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML = "🤎";
+
+heart.style.left = Math.random()*100 + "%";
+
+heart.style.animationDuration =
+
+(Math.random()*4+5)+"s";
+
+document.getElementById("hearts")
+
+.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},9000);
+
+}
+
+setInterval(createHeart,500);
+
 </script>
+
 </body>
+
 </html>
